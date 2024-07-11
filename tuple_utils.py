@@ -14,10 +14,12 @@ def tic_tac_toe_finish(board: TicTacToeBoard, pos_y: int, pos_x: int, symbol: st
     :param symbol: The symbol that should be placed in the column (X, or O)
     :return: None
     """
-    pass  # remove pass statement and implement me
+    #pass  # remove pass statement and implement me
+    board[pos_y][pos_x] = symbol
 
 
 def count_instances(collection: Tuple, instance: Union[int, str]) -> int:
+    return collection.count(instance)
     """
     This function counts the number of occurrences of the instance value within the collection parameter.
 
