@@ -2,16 +2,20 @@ from typing import Iterable, Tuple
 
 
 def convert_to_celsius(fahrenheit_temp: float) -> float:
+    result = ((fahrenheit_temp-32)*(5/9))
+    return round(result,2)
     """
     Given a float representing a temperature in fahrenheit, return the corresponding value in celsius.
 
     :param fahrenheit_temp: A float representing a temperature in fahrenheit
     :return: A float representing the corresponding value of the fahrenheit_temp parameter in celsius
     """
-    pass  # remove pass statement and implement me
+    #pass  # remove pass statement and implement me
 
 
 def convert_to_fahrenheit(celsius_temp: float) -> int:
+    result = ((celsius_temp *(9/5))+32)
+    return round(result)
     """
     Given a float representing a temperature in celsius, return the corresponding value in fahrenheit.
 
@@ -22,6 +26,21 @@ def convert_to_fahrenheit(celsius_temp: float) -> int:
 
 
 def temperature_tuple(temperatures: Iterable, input_unit_of_measurement: str) -> Tuple[Tuple[float, float]]:
+    result = []
+
+    for temp in temperatures:
+        if input_unit_of_measurement == 'c':
+            converted_temp = round((temp *(9/5)+32),2)
+        elif input_unit_of_measurement == 'f':
+            converted_temp = round((temp-32)*(5/9),2)
+        else:
+            return tuple(result)
+
+        result.append((temp, converted_temp))
+
+    return tuple(result)
+
+    
     """
     Given a tuple or a list of temperatures, this function returns a tuple of tuples.
     Each tuple contains two values. The first is the value of the temperatures parameter. The second is the the value of
